@@ -9,7 +9,7 @@ Após finalizar, enviar seu código via pull request.
 ## Observação 1: 
 Os métodos marcados com o comentário
 ```
-\\ Este método não precisa ser implementado.
+// Este método não precisa ser implementado.
 ```
 realmente não precisam ser implementados.
 
