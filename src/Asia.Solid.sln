@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asia.Solid.Domain", "Asia.Solid.Domain\Asia.Solid.Domain.csproj", "{F49491AB-582F-4AAA-BB3D-EB40F9B2CBF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asia.Solid.Test", "Asia.Solid.Test\Asia.Solid.Test.csproj", "{D622CF7A-FC69-477A-A143-55D395DE4085}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F49491AB-582F-4AAA-BB3D-EB40F9B2CBF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F49491AB-582F-4AAA-BB3D-EB40F9B2CBF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F49491AB-582F-4AAA-BB3D-EB40F9B2CBF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D622CF7A-FC69-477A-A143-55D395DE4085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D622CF7A-FC69-477A-A143-55D395DE4085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D622CF7A-FC69-477A-A143-55D395DE4085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D622CF7A-FC69-477A-A143-55D395DE4085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
