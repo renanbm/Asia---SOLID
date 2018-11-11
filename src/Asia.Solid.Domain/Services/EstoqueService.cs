@@ -4,14 +4,21 @@ namespace Asia.Solid.Domain.Services
 {
     public class EstoqueService
     {
-        public void SolicitarProduto(Produto produto)
+        public bool SolicitarProduto(Produto produto)
         {
+            return true;
             //Este método não precisa ser implementado.
         }
 
-        public void BaixarEstoque(Produto produto)
+        public bool BaixarEstoque(Produto produto)
         {
+            return true;
             //Este método não precisa ser implementado.
+        }
+
+        public bool VerificaDisponibilidade(Produto produto)
+        {
+            return true;
         }
     }
 }
