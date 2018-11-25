@@ -2,8 +2,8 @@
 {
     public enum TipoProduto
     {
-        Eletronico,
         Alimentos,
+        Eletronico,
         Superfulos
     }
 }
