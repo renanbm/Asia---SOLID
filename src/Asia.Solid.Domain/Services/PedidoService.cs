@@ -1,35 +1,30 @@
 ﻿using Asia.Solid.Domain.Entities;
-using Asia.Solid.Domain.Factories.Interfaces;
 using Asia.Solid.Domain.Services.Interfaces;
 using System.Runtime.InteropServices;
 
 namespace Asia.Solid.Domain.Services
 {
-    public class PedidoService: IPedidoService
+    public class PedidoService : IPedidoService
     {
-        private readonly ICarrinhoService _carrinhoService;
-        private readonly IPagamentoFormaPagamentoFactory _pagamentoFormaPagamentoFactory;
-        private readonly IEstoqueService _estoqueService;
+        private readonly ILogisticaService _logisticaService;
         private readonly IEmailService _emailService;
         private readonly ISmsService _smsService;
 
-        public PedidoService(ICarrinhoService carrinhoService, IPagamentoFormaPagamentoFactory pagamentoFormaPagamentoFactory, IEstoqueService estoqueService, IEmailService emailService, ISmsService smsService)
+        public PedidoService(ILogisticaService logisticaService, IEmailService emailService, ISmsService smsService)
         {
-            _carrinhoService = carrinhoService;
-            _pagamentoFormaPagamentoFactory = pagamentoFormaPagamentoFactory;
-            _estoqueService = estoqueService;
+            _logisticaService = logisticaService;
             _emailService = emailService;
             _smsService = smsService;
         }
 
-        public void EfetuarPedido(Carrinho carrinho, DetalhePagamento detalhePagamento, bool notificarClienteEmail, bool notificarClienteSms)
+        public void EfetuarPedido(Carrinho carrinho, Pagamento pagamento, bool notificarClienteEmail, bool notificarClienteSms)
         {
-            carrinho.ValorTotalPedido = _carrinhoService.CalcularValorTotalPedido(carrinho.Produtos);
+            carrinho.CalcularValorTotalPedido();
 
-            carrinho = _pagamentoFormaPagamentoFactory.GetPagamentoFormaPagamento(detalhePagamento.FormaPagamento).EfetuarPagamento(carrinho, detalhePagamento);
+            carrinho = pagamento.EfetuarPagamento();
 
             if (carrinho.FoiPago)
-                carrinho = _estoqueService.SolicitarProdutos(carrinho);
+                _logisticaService.SolicitarProdutos(carrinho);
             else
                 throw new ExternalException("O pagamento não foi efetuado.");
 
